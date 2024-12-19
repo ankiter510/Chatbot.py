@@ -1,0 +1,104 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply background and font styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the chatbot */
+.chat-container {
+    width: 350px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Chat header styles */
+.chat-header {
+    background-color: #007BFF; /* Blue background */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 2px solid #0056b3;
+}
+
+/* Chat box area */
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+/* Chat history styling */
+.chat-history {
+    flex-grow: 1;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    padding-right: 10px;
+}
+
+/* User input and button styling */
+.user-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    outline: none;
+    width: 100%;
+}
+
+.user-input:focus {
+    border-color: #007BFF;
+}
+
+/* Send button styling */
+.send-btn {
+    padding: 10px;
+    background-color: #007BFF; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Message bubbles */
+.chat-history .message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.chat-history .user-message {
+    background-color: #e1f5fe; /* Light blue for user messages */
+    align-self: flex-end;
+}
+
+.chat-history .bot-message {
+    background-color: #f0f0f0; /* Light gray for bot messages */
+    align-self: flex-start;
+}

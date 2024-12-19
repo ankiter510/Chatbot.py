@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Food Delivery Chatbot</h1>
+    
+    <!-- Chatbox Interface -->
+    <div id="chatbox">
+        <div id="chatlog"></div>
+        <input type="text" id="user_message" placeholder="Type your message here..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        // Function to send a message and display chatbot response
+        function sendMessage() {
+            let userMessage = document.getElementById('user_message').value;
+            document.getElementById('chatlog').innerHTML += `<div><b>You:</b> ${userMessage}</div>`;
+
+            // Send the user message to the Flask backend
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userMessage })
+            })
+            .then(response => response.json())
+            .then(data => {
+                let chatbotResponse = data.response;
+                document.getElementById('chatlog').innerHTML += `<div><b>Chatbot:</b> ${chatbotResponse}</div>`;
+                document.getElementById('user_message').value = ''; // Clear input field
+            });
+        }
+    </script>
+</body>
+</html>
